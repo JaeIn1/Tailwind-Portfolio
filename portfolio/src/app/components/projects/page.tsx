@@ -1,27 +1,11 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Project } from "@/app/types/project";
+import data from "@/app/mocks/project.json";
 
 export default function Projects() {
-  const [projects, setProjects] = useState<Project[]>([]);
-
-  useEffect(() => {
-    fetch("/api/project", {
-      cache: "force-cache",
-    })
-      .then((response) => response.json())
-      .then((data) => setProjects(data))
-      .catch((error) => console.error("Error fetching projects:", error));
-  }, []);
-
-  console.log(projects);
-
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-      {projects.map((project) => (
+      {data.map((project) => (
         <article
           key={project.id}
           className="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300"
