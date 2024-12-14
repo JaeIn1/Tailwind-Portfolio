@@ -6,6 +6,7 @@ import { IoSunny } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import useDarkModeToggle from "@/app/hooks/darkmode";
+import DarkModeToggle from "./darkmode.toggle";
 
 export default function Header() {
   const { isDarkMode, toggleDarkMode } = useDarkModeToggle();
@@ -71,16 +72,7 @@ export default function Header() {
             >
               연락처
             </Link>
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 w-10 h-10 rounded-full flex justify-center items-center bg-gray-200 dark:bg-gray-800 focus:outline-none focus:ring focus:ring-blue-500"
-            >
-              {isDarkMode ? (
-                <IoSunny className="text-2xl text-yellow-400" />
-              ) : (
-                <FaMoon className="text-2xl text-gray-500" />
-              )}
-            </button>
+            <DarkModeToggle />
           </div>
           <button
             className="md:hidden p-2 text-gray-700 dark:text-white"
